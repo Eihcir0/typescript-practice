@@ -1,6 +1,6 @@
 import { Sorter } from './Sorter';
 import { LettersCollection } from './LettersCollection'
-// import { NumbersCollection } from './NumbersCollection'
+import { NumbersCollection } from './NumbersCollection'
 import { LinkedList } from './NodesCollection'
 //valid type guards:
 // typeof myVariable === 'string' | 'number' | 'boolean' | 'symbol'
@@ -9,12 +9,14 @@ import { LinkedList } from './NodesCollection'
 
 
 // const values = new LettersCollection('Richie')
-const arr = [3, 2, 1, 99]
-// const values = new NumbersCollection(arr)
+const arr = [3, 211, -100, 99.54321]
 const ll = new LinkedList()
 for (let el of arr) {
     ll.add(el)
 }
-const sorter = new Sorter(ll);
-sorter.sort();
-console.log(ll.print());
+ll.sort()
+ll.print()
+// const values = new NumbersCollection(arr)
+
+// values.sort();
+// console.log(values);
