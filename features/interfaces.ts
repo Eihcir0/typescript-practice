@@ -20,9 +20,11 @@ const drinky = {
 	},
 };
 
-const printSummary = (item: Reportable): void => {
-	console.log(item.summary());
+const printSummary = (item: Reportable[]): void => {
+	for (const ite of item) {
+		console.log(ite.summary());
+	}
 };
 
-printSummary(oldCivic);
-printSummary(drinky);
+printSummary([oldCivic]);
+printSummary([drinky]);

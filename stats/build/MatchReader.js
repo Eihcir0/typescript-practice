@@ -1,11 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var CsvFileReader_1 = require("./CsvFileReader");
 var utils_1 = require("./utils");
 var MatchReader = /** @class */ (function () {
     function MatchReader(reader) {
         this.reader = reader;
         this.matches = [];
     }
+    MatchReader.getMatchesWithCsv = function (importFileName) {
+        if (importFileName === void 0) { importFileName = 'football.csv'; }
+        return new MatchReader(new CsvFileReader_1.CsvFileReader(importFileName)).load().matches;
+    };
     MatchReader.prototype.load = function () {
         this.reader.read();
         this.matches = this.reader.data.map(function (row) {

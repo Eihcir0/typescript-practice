@@ -10,6 +10,9 @@ interface DataReader {
 }
 
 export class MatchReader {
+	static getMatchesWithCsv(importFileName: string = 'football.csv') {
+		return new MatchReader(new CsvFileReader(importFileName)).load().matches;
+	}
 	matches: MatchData[] = [];
 	constructor(public reader: DataReader) {}
 
