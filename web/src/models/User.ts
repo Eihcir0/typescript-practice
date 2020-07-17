@@ -1,36 +1,16 @@
-interface UserProps {
+import { Eventing } from './Eventing'
+import { Sync } from './Sync'
+import { Attributes } from './Attributes'
+import { AxiosResponse } from 'axios'
+import { Model } from './model'
+export interface UserProps {
+    id?: number;
     name?: string;
     age?: number;
 }
 
-type Callback = () => void;
+const rootUrl: string = 'http://localhost:3000/users'
 
-export class User {
-    events: { [key: string]: Callback[] } = {};
+export class User extends Model<UserProps> {
 
-    constructor(private data: UserProps) {}
-
-    get(propName: string): (string | number) {
-        return this.data[propName]
-    }
-
-    set(update: UserProps):void {
-        Object.assign(this.data, update)
-    }
-
-    on(eventName: string, callback: Callback): void {
-        const handlers = this.events[eventName] || [];
-        handlers.push(callback)
-        this.events[eventName] = handlers
-    }
-
-    trigger(eventName: string): void {
-        const handlers = this.events[eventName];
-
-        if (!handlers || handlers.length === 0) return;
-        handlers.forEach(callback => {
-            callback()
-        })
-    }
 }
-
