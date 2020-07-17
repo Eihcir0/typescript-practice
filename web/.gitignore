@@ -3,4 +3,15 @@
 .cache/*.*
 
 dist
+dist/
+dist/src.*
 db.json
+
+web/.cache
+web/.cache/
+web/.cache/*.*
+
+web/dist
+web/dist/
+web/dist/src.*
+web/db.json

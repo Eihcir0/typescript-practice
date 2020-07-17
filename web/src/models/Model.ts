@@ -28,8 +28,8 @@ interface HasId {
 export class Model<T extends HasId> {
     constructor(
         private attributes: ModelAttributes<T>,
-        private sync: Sync<T>,
         private events: Events,
+        private sync: Sync<T>,
     ) {}
 
     get on() {
@@ -42,6 +42,10 @@ export class Model<T extends HasId> {
 
     get get() {
         return this.attributes.get;
+    }
+
+    get json() {
+        return this.attributes.getAll()
     }
 
     set(update: T): void {
