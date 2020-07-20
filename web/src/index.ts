@@ -1,6 +1,12 @@
 import { User } from './models/User'
+import { UserForm } from './views/UserForm'
 
-const user = User.buildUser({id: 1})
-user.on('change', () => {console.log('fetching', user.json)})
+const user = User.buildUser({name: 'Joey', age: 2})
 
-user.fetch()
+const root = document.getElementById('root');
+if (root) {
+    const userForm = new UserForm(root, user)
+    userForm.render()
+} else {
+    throw new Error('Root element not found')
+}
