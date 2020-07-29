@@ -14,7 +14,7 @@ export class UserForm extends View<User, UserProps> {
         this.model.setRandomAge()
     }
 
-    updateName = () => {
+    updateName = (): void => {
         const inputEl = this.parent.querySelector('input')
         if (inputEl) {
             const name: string = inputEl.value
@@ -22,7 +22,7 @@ export class UserForm extends View<User, UserProps> {
         }
     }
 
-    onSaveChanges = () => {
+    onSaveChanges = (): void => {
         this.model.save()
     }
 
@@ -30,10 +30,7 @@ export class UserForm extends View<User, UserProps> {
     template = (): string => {
         return `
             <div>
-                <h1>New User Form</h1>
-                <div>User name: ${this.model.get('name')}</div>
-                <div>User age: <span id="age">${this.model.get('age')}</span></div>
-                <input class='name-input'/>
+                <input class='name-input' placeholder=${this.model.get('name')}></input>
                 <button class='set-age'>set random age!!!</button>
                 <button class='update-name'>update name!!!</button>
                 <br/>

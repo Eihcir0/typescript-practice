@@ -1,7 +1,7 @@
 import { Attributes } from './Attributes'
 import { Eventing } from './Eventing'
 import { ApiSync } from './ApiSync'
-import { Model } from './XModel'
+import { Model } from './Model'
 import { Collection } from './Collection'
 
 
